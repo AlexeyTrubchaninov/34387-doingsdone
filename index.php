@@ -44,6 +44,37 @@ $show_complete_tasks = rand(0, 1);
         <div class="content">
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
+                <!-- PHP массивы списка задач -->
+                <?php
+                  $categories=["Все","Входящие","Учеба","Работа","Домашние Дела","Авто"];
+                ?>
+                <?php
+                  $tasks=[
+                  0=>["task"=>"Собеседование в IT компанию",
+                     "date"=>"01.06.2018",
+                     "category"=>"Работа",
+                     "execution"=>"Нет"],
+                  1=>["task"=>"Выполнить тестовое занятие",
+                      "date"=>"25.05.2018",
+                      "category"=>"Работа",
+                      "execution"=>"Нет"],
+                  2=>["task"=>"Сделать задание первого раздела",
+                      "date"=>"21.04.2018",
+                      "category"=>"Учеба",
+                      "execution"=>"Да"],
+                  3=>["task"=>"Встреча с другом",
+                      "date"=>"22.04.2018",
+                      "category"=>"Входящие",
+                      "execution"=>"Нет"],
+                  4=>["task"=>"Купить корм для кота",
+                      "date"=>"Нет",
+                      "category"=>"Домашние дела",
+                      "execution"=>"Нет"],
+                  4=>["task"=>"Заказать пиццу",
+                      "date"=>"Нет",
+                      "category"=>"Домашние дела",
+                      "execution"=>"Нет"],
+                  ];
 
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
