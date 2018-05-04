@@ -138,8 +138,7 @@ $show_complete_tasks = rand(0, 1);
 
                 <table class="tasks">
                   <?php foreach ($tasks as $key=>$val): ?>
-                    <?php if ($show_complete_tasks==1||$val["execution"]!="true"):?>
-                    <?php endif;?>
+                    <?php if ($show_complete_tasks==1||$val["execution"]!="true"):?>                    
                     <tr class="tasks__item task <?php if($val["execution"]=="true"){echo "task--completed";}?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
@@ -152,7 +151,7 @@ $show_complete_tasks = rand(0, 1);
                         </td>
                         <td class="task__date"><?php print($val["date"])?></td>
                     </tr>
-
+                  <?php endif;?>
                   <?php endforeach; ?>
                 </table>
             </main>
