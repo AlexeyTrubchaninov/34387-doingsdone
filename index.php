@@ -4,7 +4,7 @@
 $show_complete_tasks = rand(0, 1);
 ?>
 <?php
-  $categories=["Все","Входящие","Учеба","Работа","Домашние Дела","Авто",];
+  $categories=["Все","Входящие","Учеба","Работа","Домашние дела","Авто",];
 ?>
 <?php
   $tasks=[
@@ -36,21 +36,20 @@ $show_complete_tasks = rand(0, 1);
   ?>
   <?php
     function projects_count ($tasks,$project_name){
-
-      $counter=0;
-
-      foreach ($tasks as $key => $val) {
-      if ($val["category"]== $project_name){
-        $counter++;
+      if ($project_name=="Все"){
+        return count($tasks);}
+      else {
+        $counter=0;
+        foreach ($tasks as $val){
+          if ($val["category"]==$project_name){
+          $counter +=1;
+          }
+        }
+        return $counter;
       }
-      }
+    }
 
-      if ($project_name =="Все") {
-        return count ($val["category"]);
-      }
-
-      return $counter;}
-      ?>
+  ?>
 
 
 <!DOCTYPE html>
@@ -101,9 +100,9 @@ $show_complete_tasks = rand(0, 1);
                     <ul class="main-navigation__list">
 
                       <?php foreach ($categories as $key=>$item): ?>
-                        <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link <?php if($key == 0) {print("main-navigation__list-item--active")}?>" href="#"><?php print($item)?></a>
-                            <span class="main-navigation__list-item-count"><?php print($counter)?></span>
+                        <li class="main-navigation__list-item <?php if($key == 0) {print("main-navigation__list-item--active");}?>">
+                            <a class="main-navigation__list-item-link" href="#"><?php print($item)?></a>
+                            <span class="main-navigation__list-item-count"><?php print (projects_count($tasks,$item))?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>
@@ -139,6 +138,8 @@ $show_complete_tasks = rand(0, 1);
 
                 <table class="tasks">
                   <?php foreach ($tasks as $key=>$val): ?>
+                    <?php if ($show_complete_tasks==1||$val["execution"]!="true"):?>
+                    <?php endif;?>
                     <tr class="tasks__item task <?php if($val["execution"]=="true"){echo "task--completed";}?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
@@ -146,13 +147,12 @@ $show_complete_tasks = rand(0, 1);
                                 <span class="checkbox__text"> <?php print($val["task"])?> </span>
                             </label>
                         </td>
-
                         <td class="task__file">
                             <a class="download-link" href="#">Home.psd</a>
                         </td>
-
                         <td class="task__date"><?php print($val["date"])?></td>
                     </tr>
+
                   <?php endforeach; ?>
                 </table>
             </main>
