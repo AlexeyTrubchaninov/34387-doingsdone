@@ -1,26 +1,3 @@
-
-<?php
-// показывать или нет выполненные задачи
-$show_complete_tasks = rand(0, 1);
-?>
-  <?php
-    function projects_count ($tasks,$project_name){
-      if ($project_name=="Все"){
-        return count($tasks);}
-      else {
-        $counter=0;
-        foreach ($tasks as $val){
-          if ($val["category"]==$project_name){
-          $counter +=1;
-          }
-        }
-        return $counter;
-      }
-    }
-
-  ?>
-
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -69,9 +46,9 @@ $show_complete_tasks = rand(0, 1);
                     <ul class="main-navigation__list">
 
                       <?php foreach ($categories as $key=>$item): ?>
-                        <li class="main-navigation__list-item <?php if($key == 0) {print("main-navigation__list-item--active");}?>">
-                            <a class="main-navigation__list-item-link" href="#"><?php print($item)?></a>
-                            <span class="main-navigation__list-item-count"><?php print (projects_count($tasks,$item))?></span>
+                        <li class="main-navigation__list-item <?php if($key == 0) {encryptor(print("main-navigation__list-item--active");)}?>">
+                            <a class="main-navigation__list-item-link" href="#"><?php encryptor(print($item))?></a>
+                            <span class="main-navigation__list-item-count"><?php encryptor(print (projects_count($tasks,$item)))?></span>
                         </li>
                         <?php endforeach; ?>
                     </ul>
@@ -82,7 +59,7 @@ $show_complete_tasks = rand(0, 1);
             </section>
 
             <main class="content__main">
-                <?php print($content) ?>
+                <?php encryptor(print($content)) ?>
             </main>
         </div>
     </div>
