@@ -37,3 +37,10 @@ return htmlspecialchars($text)
   }
 
 ?>
+
+<?php function date_check ($date){
+  $current_date = time();
+  $time_left = (strtotime($date) - $current_date)/3600;
+  return $time_left;
+}
+?>

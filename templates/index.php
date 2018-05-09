@@ -25,7 +25,7 @@
                 <table class="tasks">
                   <?php foreach ($tasks as $key=>$val): ?>
                     <?php if ($show_complete_tasks==1||$val["execution"]!="true"):?>
-                    <tr class="tasks__item task <?php if($val["execution"]=="true"){encryptor(echo "task--completed";)}?>">
+                    <tr class="tasks__item task <?php if($val["execution"]=="true"){encryptor(echo "task--completed";)}?><?php if date_check($val["date"]) <= 24{encryptor(echo "task--important")}?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
