@@ -12,18 +12,18 @@ CREATE TABLE categories (
 
 CREATE TABLE tasks (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  createdate DATETIME,
-  donedate DATETIME,
+  create_date DATETIME,
+  done_date DATETIME,
   name Char(128),
   file Char(256),
   deadline DATETIME,
   author_id INT,
-  project_name INT,
+  category_id INT,
 );
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  regdate DATETIME,
+  reg_date DATETIME,
   email Char(128) UNIQUE,
   name Char (128),
   password Char (128),
