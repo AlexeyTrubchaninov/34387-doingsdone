@@ -37,7 +37,7 @@ WHERE id="1";
 /*все задачи для завтрашнего дня*/
 
 SELECT * FROM tasks
-WHERE deadline="(NOW() - INTERVAL 1 DAY)"
+WHERE deadline="(NOW() + INTERVAL 1 DAY)"
 ORDER BY name ASC;
 
 /*название задачи по её id*/
